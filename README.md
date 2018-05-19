@@ -33,3 +33,41 @@ And execute command:
 php composer.phar update
 ```
 
+Example
+------------
+
+```php
+use AndyDune\ArrayWalker\ArrayWalker;
+use AndyDune\ArrayWalker\ItemContainer;
+
+$array = [
+    'one' => 1,
+    'two' => 2,
+    'three' => 3,
+];
+
+$arrayWalker = new ArrayWalker($array);
+// Change values
+$arrayWalker->addFunction(function (ItemContainer $item) {
+    $item->setValue($item->getValue() + 10);
+});
+$result = $arrayWalker->apply();
+$result = [
+    'one' => 11,
+    'two' => 12,
+    'three' => 13,
+];
+
+$arrayWalker = new ArrayWalker($array);
+// Change keys
+$arrayWalker->addFunction(function (ItemContainer $item) {
+   $item->setKey(strtoupper($item->getKey()));
+});
+$result = $arrayWalker->apply();
+$result = [
+    'ONE' => 1,
+    'TWO' => 2,
+    'THREE' => 3,
+];
+
+```
