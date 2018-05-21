@@ -40,6 +40,7 @@ Example
 use AndyDune\ArrayWalker\ArrayWalker;
 use AndyDune\ArrayWalker\ItemContainer;
 
+// Source array
 $array = [
     'one' => 1,
     'two' => 2,
@@ -70,4 +71,20 @@ $result = [
     'THREE' => 3,
 ];
 
+
+$arrayWalker = new ArrayWalker($array);
+// Delete value 
+$arrayWalker = new ArrayWalker($array);
+$arrayWalker->addFunction(function (ItemContainer $item) {
+    $item->setValue($item->getValue() + 10);
+    if ($item->getKey() == 'one') {
+        $item->delete();
+    }
+});
+$result = $arrayWalker->apply();
+
+$result = [
+    'two' => 12,
+    'three' => 13,
+];
 ```
