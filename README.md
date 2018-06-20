@@ -17,7 +17,7 @@ Installation using composer:
 ```
 composer require andydune/array-walker
 ```
-Or if composer didn't install globally:
+Or if composer was not installed globally:
 ```
 php composer.phar require andydune/array-walker
 ```
