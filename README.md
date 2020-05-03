@@ -71,7 +71,6 @@ $result = [
     'THREE' => 3,
 ];
 
-
 $arrayWalker = new ArrayWalker($array);
 // Delete value 
 $arrayWalker = new ArrayWalker($array);
